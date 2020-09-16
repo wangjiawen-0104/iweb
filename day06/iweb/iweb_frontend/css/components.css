@@ -1,0 +1,86 @@
+/* 多个页面所通用的组件必需的样式 */
+/* 顶部的灰色条 */
+.topbar {
+	background: #f9f9f9;
+	border-bottom: 1px solid #eee;
+	line-height: 36px;
+}
+.fa-download-app{
+	color:#f60;
+}
+.topbar-item{
+	padding: 0  0.5em;
+}
+.topbar-item:last-child{
+	padding-right:0;
+
+}
+/* 2.logo+搜索条*/
+.searchbar > .container{ 
+	position: relative;
+}
+.logo{
+	margin: 1.5em 0;
+}
+.search{
+	/* 保证元素在父容器中竖直居中方法：1、调整上间距
+	 */
+	/* margin-top: 25px; */
+	/* 保证元素在父容器中竖直居中方法2、先向下移到父容器
+	 中线一下，再向上微调自身高度一半*/
+	 /* 为子元素绝对定位 */
+	position: absolute;
+	top: 50%;
+	right:200px;
+	margin-top: -16px;
+}
+.search-input{
+	width: 360px;
+	height: 32px;
+	line-height: 32px;
+	padding: 0   0.6em;
+	font-size: 1.15em;
+	border: 1px soild #ccc;
+	
+}
+.search-button{
+	width: 50px;
+	height: 32px;
+	background: #00be56;
+	color: #fff;
+	line-height: 32px;
+	border: none;
+	font-size: 1.7em;
+	position: absolute;
+	right: 0;
+	top:0;
+}
+.my-cart{
+	position: absolute;
+	right: 0;
+	top: 50%;
+	height: 32px;
+	margin-top: -16px;
+	border:1px solid #ddd;
+	background: #f9f9f9;
+	line-height: 32px;
+	padding: 0 0.5em;
+}
+.navbar {
+	background: #00be56;
+	border-bottom: 3px solid #b3efc0;
+	height: 52px;
+}
+.carouselbar {
+	border-bottom: 4px solid #ddd;
+}
+.mainbar {
+	border-bottom: 1px solid #ddd;
+}
+.bottombar {
+	background: #eee;
+}
+/* 选择“底部条”中的“容器”下的第一个.row元素 */
+.bottombar > .container > .row:first-child {
+	border-bottom: 1px solid #ddd;
+}
