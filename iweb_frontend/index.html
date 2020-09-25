@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="css/scaffolding.css">
 		<link rel="stylesheet" href="css/layout.css">
 		<link rel="stylesheet" href="css/components.css">
+		<link rel="stylesheet" href="css/index.css">
 	</head>
 	<body>
 		<!-- 1.最顶部的“灰色条”：topbar -->
@@ -64,17 +65,18 @@
 					</div>
 					<!-- 仅在PHONE屏幕显示的：汉堡包按钮 -->
 					<div class="col-sm-2 hidden-md hidden-lg">
-						<span class="fa fa-navicon hamburger"></span>
+						<!-- 通过添加自定义属性，为元素添加JS操作 -->
+						<span data-toggle="nav" class="fa fa-navicon hamburger"></span>
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- 3.导航条：navbar -->
-		<div class="navbar">
+		<div data-target="nav" class="navbar">
 			<div class="container">
 				<div class="row">
 					<!-- 导航菜单 -->
-					<div class="col-lg-10">
+					<div class="col-sm-12 col-md-10 col-lg-10">
 						<ul class="menu">
 							<li class="active"><a href="#">首页</a></li>
 							<li><a href="#">全部课程</a></li>
@@ -84,9 +86,11 @@
 							<li><a href="#">名师堂</a></li>
 							<li><a href="#">校区</a></li>
 						</ul>
+						<!-- 仅在PHONE屏幕下显示的关闭按钮 -->
+						<span data-close="nav" class="menu-close hidden-md hidden-lg">&times;</span>
 					</div>
 					<!-- 登录和注册 -->
-					<div class="col-lg-2">
+					<div class="col-md-2 col-lg-2  hidden-sm">
 						<div class="user-center">
 							<div class="text-center">
 								<a href="#">登录</a>
@@ -111,17 +115,17 @@
 					</ul>
 					<!-- 轮播指示器 -->
 					<ul class="indicators">
-						<li class="active"></li>
-						<li></li>
-						<li></li>
-						<li></li>
+						<li data-carousel-to="0" class="active"></li>
+						<li data-carousel-to="1" ></li>
+						<li data-carousel-to="2" ></li>
+						<li data-carousel-to="3" ></li>
 					</ul>
 					<!-- 上/下一张切换控件 -->
 					<div class="controls">
-						<div class="prev">
+						<div data-carousel="prev" class="prev">
 							<span class="fa fa-chevron-left"></span>
 						</div>
-						<div class="next">
+						<div data-carousel="next" class="next">
 							<span class="fa fa-chevron-right"></span>
 						</div>
 					</div>
@@ -386,7 +390,7 @@
 			</div>
 		</div>
 		<!-- 6.底部条：bottombar -->
-		<div class="bottombar">
+		<div class="bottombar hidden-sm">
 			<div class="container">
 				<!-- 底部功能菜单 -->
 				<div class="row">
@@ -450,5 +454,45 @@
 				</div>
 			</div>
 		</div>
+		<!-- 7.页签条：tabbar——仅在PHONE中显示，功能约等于顶部的导航条，但是最多只能放六项 -->
+		<div class="tabbar hidden-md hidden-lg">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-5-1">
+						<div class="tab  active">
+							<span class="fa fa-home"></span>
+							<div>首页</div>
+						</div>
+					</div>
+					<div class="col-sm-5-1">
+						<div class="tab">
+							<span class="fa fa-map"></span>
+							<div>课程</div>
+						</div>
+					</div>
+					<div class="col-sm-5-1">
+						<div class="tab">
+							<span class="fa fa-bank"></span>
+							<div>校区</div>
+						</div>
+					</div>
+					<div class="col-sm-5-1">
+						<div class="tab">
+							<span class="fa fa-address-card"></span>
+							<div>讲师</div>
+						</div>
+					</div>
+					<div class="col-sm-5-1">
+						<div class="tab">
+							<span class="fa fa-user"></span>
+							<div>用户</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 在此处引入所有的js文件 -->
+		<script src="js/components.js"></script>
+		<script src="js/index.js"></script>
 	</body>
 </html>

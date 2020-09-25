@@ -1,0 +1,20 @@
+.breadcrumb{
+	line-height: 32px;
+	color: #999;
+	font-size: 14px;
+	margin-bottom: 25px;
+}
+.title2{
+	border-left: 3px solid #77c558;
+	padding-left: 12px;
+	line-height: 20px;
+	font-weight: lighter;
+	font-size: 18px;
+}
+.teacher_list{
+	margin-top: 13px;
+}
+.teacher_list ul li{
+	border-top: 1px solid dotted #7c21cc;
+	padding: 30px 0;
+}
