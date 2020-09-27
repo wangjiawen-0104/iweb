@@ -12,9 +12,7 @@ body{
 	margin-bottom: 25px;
 }
 
-.breadcrumb a{
-	color: #999;
-}
+
 
 .address{
 	width: 800px;
@@ -44,13 +42,27 @@ body{
 	text-align: center;
 	line-height: 168px;
 }
+.allmap{
+	height: 171px;
+}
 @media screen and (max-width:768px){
 	.address .icon-location{
 		text-align: center;
 	}
 	.address .address_detail {
-		transform: translateX(100px);
+		margin: 0 auto;
 	}
 	
+	.allmap{
+		width: 760px;
+		height: 171px;
+		margin: 0 auto;
+	}
+	.map{
+		width: 100%;
+	}
+	.text{
+		width: 100%;
+	}
 }
 
