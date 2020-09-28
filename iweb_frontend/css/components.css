@@ -106,7 +106,6 @@
 		line-height: 52px;
 		font-size: 26px;
 		transform: translateX(2px);
-		cursor: pointer;
 	}
 }
 
@@ -157,10 +156,12 @@
 		background: rgba(0, 0, 0, 0.9);
 		height: auto;	/*必需覆盖所有屏幕下高度为52px的设定*/
 		z-index: 9999;  /*必需足够高，以盖住页面中绝对定位的元素*/
-		transition: all .5s;
+		transition: all  .3s; 
+		/*在0.3秒钟内将属性的改变添加过渡动画*/
 	}
-	.navbar.active{
-		transform: translate(0);
+	.navbar.active {
+		/* 带.active的导航条取消平移变形 */
+		transform: translateX(0);
 	}
 	.menu > li {
 		float: none;	/*PHONE下每个菜单项独占一行*/
@@ -173,7 +174,6 @@
 		right: 10px;
 		color: #fff;
 		font-size: 2em;
-		cursor: pointer;
 	}
 }
 
@@ -270,113 +270,6 @@
 	}
 }
 
-/* 5.主体部分 */
-.mainbar {
-	border-bottom: 1px solid #ddd;
-}
-.mainbar  .header  {
-	position: relative;  /*为绝对定位的子元素提供参照物*/
-	border-bottom: 3px solid #ddd;
-}
-.mainbar  .header   h3 {
-	font-weight: normal;	/*标题字取消加粗*/
-	margin-bottom:  .5em;	/*0.5简写为.5*/
-	padding: 0   0.8em;		/*此处的0.8可简写为.8*/
-}
-.mainbar  .header  a {
-	position: absolute;
-	right: 0;
-	bottom: .3em
-}
-.mainbar  .header  span {
-	width: 7em;
-	height: 3px;
-	position: absolute;
-	left: 0;
-	bottom: -3px;	/*此处如果使用0，仍然在父容器边框内*/
-	background: #00be56;
-}
-.mainbar   .course  {
-	padding: 1.2em   0;   /*每个列中的.course需要自己提供上下间距*/
-	/* border: 1px solid #000; */
-}
-.mainbar   .course   .pic   img {
-	width: 100%;
-}
-.mainbar   .course   .title {
-	display: block;		/*让课程标题占一整行*/
-	text-align: left;
-	line-height: 1.8em;
-}
-.mainbar   .course   .teacher {
-	display: block;		/*让讲师姓名占一整行*/
-	font-size:  .8em;
-	color: #999;
-	text-align: left;
-	line-height: 1.8em;
-}
-.mainbar   .course   .price {
-	display: block;   /*让价格占一整行*/
-	font-weight: bold;
-	color: #ff5a00;
-	text-align: left;
-}
-.mainbar   .teacher-item  {
-	padding: 2em  0;
-}
-.mainbar   .teacher-item   .pic   img {
-	width: 100%;
-}
-.mainbar   .teacher-item   .tname {
-	font-size: 1.2em;
-	color: #555;
-	line-height: 2.2em;
-	display: block;			/*显示为块级元素，独占一行*/
-	text-align: center;
-}
-.mainbar   .teacher-item   .maincourse {
-	font-size:  .8em;
-	color: #999;
-	display: block;	/*显示为块级元素，独占一行*/
-	text-align: center;
-}
-/* 在PAD屏幕下，讲师列表一行只能显示3.5个讲师信息，溢出内容水平滚动 */
-@media  screen  and  (min-width:768px)  and  (max-width: 1023px) {
-	.teacher-list {
-		white-space: nowrap;  /*一行结尾处的空白处不换行*/
-		overflow-x: auto; /*水平方向内容溢出时显示滚动条*/
-		margin-left: 0;   /*取消.row左边带的margin*/
-		margin-right: 0;  /*取消.row右边带的margin*/
-	}
-	.col-lg-5-1 {
-		/*取消列浮动——浮动元素只要空间不够必然转到下一行*/
-		float: none; 
-		/*根据PAD屏下的.container宽度(750px)，设置内容宽*/
-		width: 214px;
-		/*将列设置为“行内块”——就可以在一行中出现多个列*/
-		display: inline-block;
-	}
-}
-
-/* 在PHONE屏幕下，讲师列表一行只能大约显示2.5个讲师信息，溢出内容水平滚动 */
-@media  screen  and  (max-width: 767px) {
-	.teacher-list {
-		white-space: nowrap;  /*一行结尾处的空白处不换行*/
-		overflow-x: auto; /*水平方向内容溢出时显示滚动条*/
-		margin-left: 0;   /*取消.row左边带的margin*/
-		margin-right: 0;  /*取消.row右边带的margin*/
-	}
-	.col-lg-5-1 {
-		/*取消列浮动——浮动元素只要空间不够必然转到下一行*/
-		float: none; 
-		/*根据PHONE屏下的.container宽度(100%，基本都在320px~375px之间)，设置内容宽*/
-		width: 140px;
-		/*将列设置为“行内块”——就可以在一行中出现多个列*/
-		display: inline-block;
-	}
-}
-
-
 /* 6.底部条 */
 .bottombar {
 	background: #eee;
@@ -442,60 +335,65 @@
 	}
 }
 
-/*8.面包屑*/
-.breadcrumb ul::after{/*在ul的尾部生成一个新的子元素，清除所有的li浮动导致的ul高度丢失问题*/
+/* 8.面包屑 */
+/*在ul的尾部生成一个新的子元素，清除所有的li浮动导致的ul高度丢失问题*/
+.breadcrumb  ul:after {	
 	content: '';
 	display: block;
 	clear: both;
 }
-.breadcrumb ul li {
+.breadcrumb  ul  li {
 	float: left;
 	line-height: 3em;
 }
-.breadcrumb ul li a{
-	color: #999;
-}
 /* 面包屑中的每个li（除了最后一个）尾部生成一个> */
-.breadcrumb ul li:not(:last-child)::after{
+.breadcrumb  ul  li:not(:last-child):after {
 	content: '>';
-	margin: 0 0.5em;
+	margin: 0  0.5em;
 	color: #999;
 }
-/* 9.组件条 */
-.pager{
-	padding: 3em 0;
-}
-.pager ul{
-	text-align: center;
+.breadcrumb  ul  li  a {
+	color: #999;
 }
 
-.pager ul li{
+/* 9.分页条 */
+.pager {
+	padding:  3em  0;
+}
+.pager  ul {
+	text-align: center;
+}
+.pager  ul  li {
 	/* 让li变为行内块，既可以多个li共处一行，也可以指定尺寸/间距 */
 	display: inline-block;
-	/*此方式的不足：1.老IE不支持	2.HTML中只要li间有空白字符，呈现时就会有一个空格*/
+	/* 此方式的不足：①老IE不支持  ②HTML中只要li间有空白字符，呈现时就会有一个空格 */
 	border: 1px solid #ddd;
-	padding: 0.3em 0.7em;
-	cursor: pointer;/*鼠标悬停在li上方时，光标变成小手*/
+	padding: 0.3em   0.7em;
+	cursor: pointer; /*鼠标悬停在li上方时，光标变为小手*/
 }
-.pager ul li.active{
+.pager  ul  li.active {
 	background: #99d989;
 	border: 1px solid #99d989;
-	cursor: pointer;
-}
-.pager ul li .disabled{
-	background: #f4f4f4;
-	cursor: pointer;
-}
-.pager ul li a{
-	color: #999;
-}
-.pager ul li.active a{
-	color: #fff;
-	/* 将超链接的默认光标效果小手转化为平时效果 */
 	cursor: default;
 }
-.pager ul li.disabled a{
+.pager  ul  li.disabled {
+	background: #f4f4f4;
+	cursor: default;
+}
+.pager  ul  li  a {
+	color: #999;
+}
+.pager  ul  li.active  a {
+	color: #fff;
+	/* 将超链接的默认光标效果（小手）转换为平时效果 */
+	cursor: default;
+}
+.pager  ul  li.disabled  a {
 	color: #ddd;
 	cursor: default;
 }
+/* 当鼠标悬停于非.active项/非.disabled项上方时，边框变色 */
+.pager  ul  li:not(.active):not(.disabled):hover  {
+	border-color: #99d989;
+} 
 
