@@ -145,7 +145,7 @@
 }
 @media  screen  and  (max-width: 767px){
 	/* PHONE屏幕下，导航条变为“充满整个屏幕的半透明区” */
-	.navbar {			
+	.navbar {
 		/*默认情况下，响应式导航条隐藏在屏幕左侧*/
 		transform: translateX(-100%); 
 		position: fixed;
